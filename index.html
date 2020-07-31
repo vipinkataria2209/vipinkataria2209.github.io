@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Narrative Visualization-CS489</title>
+    <script type="text/javascript" src="index.js"></script>
+    <script type="text/javascript" src="sceneProcessor.js"></script>
+    <script type="text/javascript" src="https://d3js.org/d3.v5.js"></script>
+    <link rel="stylesheet" type="text/css" href="chart.css"/>
+
+</head>
+<body onload="init()">
+<div class="container-fluid">
+    <div class="header">
+        Narrative Visualization- Covid-19 Deaths/NewCases In USA
+        <hr/>
+    </div>
+    <div class="row">
+        <div class="col-1">
+            <div class="tool_box">
+                <ul class="pagination">
+                    <li><a onclick="handlePreviousScene()">«</a></li>
+                    <li><a style="background-color: red;color:white" onclick="handleUserDrivenScene(0)">1</a></li>
+                    <li><a onclick="handleUserDrivenScene(1)">2</a></li>
+                    <li><a onclick="handleUserDrivenScene(2)">3</a></li>
+                    <li><a onclick="handleNextScene()">»</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-11"></div>
+    </div>
+    <hr/>
+
+    <div class="charteventbox">
+        <div class="left_window">
+            <div class="card-header">
+                Information
+            </div>
+            <div class="card-body" id="scene_1">
+                <ul>
+                    <li>
+                        This Scene-1 provide information of count of New Cases of Covid-19 vs Date.
+                        Bar Chart was being used in this Scene Showing New Cases of Covid-19 as Y-Axis
+                        and Date as X-Axis.
+                    </li>
+                    <li>
+                        User can hover over the bar chart which display tooltip showing count of New Cases and Date
+                        information.
+                    </li>
+                    <li>
+                        Highest Number of New Cases Covid-19 was recorded on 16th July 2020.
+                    </li>
+                    <li>
+                        Next Scene(Scene-2) will shown count of Deaths because of Covid-19 vs Date.
+                    </li>
+                </ul>
+
+            </div>
+            <div class="card-body" id="scene_2" style="display: none">
+                <ul>
+                    <li>
+                        This Scene-2 provide information of count of Deaths because Covid-19 vs Date.
+                        Bar Chart was being used in this Scene Showing count of Deaths as Y-Axis
+                        and Date as X-Axis.
+                    </li>
+                    <li>
+                        User can hover over the bar chart which display tooltip showing count of Deaths and Date
+                        information.
+                    </li>
+                    <li>
+                        Highest Number of Deaths because of Covid-19 was recorded on 14th April 2020.
+                    </li>
+                    <li>
+                        Next Scene will give user flexibility to drill down further on Covid 19 New Cases/Deaths
+                        per State.
+                    </li>
+                </ul>
+            </div>
+            <div class="card-body" id="scene_3" style="display: none">
+                <ul>
+                    <li>
+                        This Scene(Scene-3) will give user flexibility to drill down further on Covid 19 New Cases/Deaths
+                        per State.Use can select "State" from drop down and can further select "Death" or "New Cases"
+                        from radio option.
+                    </li>
+                    <li>
+                        Bar Chart was being used in this Scene Showing count of Deaths or NewCases as Y-Axis
+                        and Date as X-Axis per selected State.
+                    </li>
+                    <li>
+                        User can hover over the bar chart which display tooltip showing count of Deaths/count of
+                        New Cases and Date information.
+                    </li>
+
+                </ul>
+
+            </div>
+        </div>
+        <div id="my_dataviz" class="right_window">
+            <div class="scene3box" id="scene2_id" style="visibility: hidden;display: inline-block">
+                <div class="dropdownbox">
+                    <div style="float: left;font-weight: bold;margin-right: 6px">State</div>
+                    <select id="d3-dropdown">
+                    </select>
+                </div>
+                <div class="radiobuttonbox" style="float: left">
+                    <form id="test">
+                        <label><input type="radio" name="test" value="A" checked> NewCases</label>
+                        <label><input type="radio" name="test" value="B"> Deaths</label>
+                    </form>
+                </div>
+            </div>
+            <svg>
+                <div id="mybar">
+
+                </div>
+            </svg>
+        </div>
+
+    </div>
+</div>
+</div>
+
+</body>
+</html>
