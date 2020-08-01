@@ -14,19 +14,23 @@ function loadFixedScene(dataSet) {
 
     if (currentSceneIndex == 0) {
         hoverText = "NewCases"
-        bar_color= 'darkorange'
+        bar_color = 'darkorange'
+        chart_title = "NewCases of Covid-19 in USA vs Date"
 
     } else if (currentSceneIndex == 1) {
         hoverText = "Deaths"
-        bar_color= 'red'
+        bar_color = 'red'
+        chart_title = "Deaths Covid-19 in USA vs Date"
     } else if (currentSceneIndex == 2) {
         var form = document.getElementById("test");
         if (form.elements["test"].value == 'A') {
             hoverText = "NewCases"
-            bar_color= 'darkorange'
+            bar_color = 'darkorange'
+            chart_title = "NewCases of  Covid-19 in USA State vs Date"
         } else {
             hoverText = "Deaths"
-            bar_color= 'red'
+            bar_color = 'red'
+            chart_title = "Deaths Covid-19 in USA State vs Date"
 
         }
     }
@@ -39,11 +43,21 @@ function loadFixedScene(dataSet) {
         .attr("transform",
             "translate(" + margin.left + "," + margin.top + ")");
 
+
+    svg.append("text")
+        .attr("x", (width / 2) - 250)
+        .attr("y", (margin.top / 2) - 25)
+        .attr("text-anchor", "middle")
+        .style("font-size", "18")
+        .style("font-weight", "bold")
+        .style("fill", "blue")
+        .style("text-decoration", "underline")
+        .text("Title:"+chart_title);
+
     var xAxis = get_scaleTime();
     svg.append("g")
         .attr("transform", "translate(0," + height + ")")
         .call(d3.axisBottom(xAxis));
-    // text label for the x axis
     svg.append("text")
         .attr("transform",
             "translate(" + (width / 2) + " ," +
@@ -85,7 +99,7 @@ function loadFixedScene(dataSet) {
         .attr("height", function (d) {
             return height - yAxis(d.Value);
         })
-        .attr("fill",bar_color)
+        .attr("fill", bar_color)
         .on("mouseover", function () {
             return tooltip.style("visibility", "visible");
         })
@@ -118,7 +132,7 @@ function loadFixedScene(dataSet) {
         maxIndex = getMaxIndex(dataSet)
         parent.append("rect")
             .attr("opacity", 1)
-            .attr("x", xAxis(dataSet[maxIndex].Date) - xoffset-20)
+            .attr("x", xAxis(dataSet[maxIndex].Date) - xoffset - 20)
             .attr("y", yAxis(dataSet[maxIndex].Value))
             .attr("height", 50)
             .attr("width", 330)
@@ -170,8 +184,8 @@ function handleNextScene() {
         k = d3.select(".pagination").selectAll("a").nodes()
         d3.selectAll("a").style("background-color", "white")
         d3.selectAll("a").style("color", "black")
-        d3.select(k[currentSceneIndex+1]).style("background-color", "red")
-        d3.select(k[currentSceneIndex+1]).style("color", "white")
+        d3.select(k[currentSceneIndex + 1]).style("background-color", "red")
+        d3.select(k[currentSceneIndex + 1]).style("color", "white")
         //bg_color = d3.select(k[currentSceneIndex+1]).style("background-color")
         //font_color = d3.select(k[currentSceneIndex+1]).style("color")
 
@@ -187,10 +201,10 @@ function handleNextScene() {
         k = d3.select(".pagination").selectAll("a").nodes()
         d3.selectAll("a").style("background-color", "white")
         d3.selectAll("a").style("color", "black")
-        d3.select(k[currentSceneIndex+1]).style("background-color", "red")
-        d3.select(k[currentSceneIndex+1]).style("color", "white")
+        d3.select(k[currentSceneIndex + 1]).style("background-color", "red")
+        d3.select(k[currentSceneIndex + 1]).style("color", "white")
         //bg_color = d3.select(k[currentSceneIndex+1]).style("background-color")
-       // font_color = d3.select(k[currentSceneIndex+1]).style("color")
+        // font_color = d3.select(k[currentSceneIndex+1]).style("color")
 
 
     }
@@ -248,10 +262,9 @@ function handlePreviousScene() {
         k = d3.select(".pagination").selectAll("a").nodes()
         d3.selectAll("a").style("background-color", "white")
         d3.selectAll("a").style("color", "black")
-        d3.select(k[currentSceneIndex+1]).style("background-color", "red")
-        d3.select(k[currentSceneIndex+1]).style("color", "white")
-        //bg_color = d3.select(k[currentSceneIndex+1]).style("background-color")
-        //font_color = d3.select(k[currentSceneIndex+1]).style("color")
+        d3.select(k[currentSceneIndex + 1]).style("background-color", "red")
+        d3.select(k[currentSceneIndex + 1]).style("color", "white")
+
     }
     if (currentSceneIndex == 1) {
         d3.select("#scene2_id")
@@ -262,10 +275,10 @@ function handlePreviousScene() {
         k = d3.select(".pagination").selectAll("a").nodes()
         d3.selectAll("a").style("background-color", "white")
         d3.selectAll("a").style("color", "black")
-        d3.select(k[currentSceneIndex+1]).style("background-color", "red")
-        d3.select(k[currentSceneIndex+1]).style("color", "white")
-        //bg_color = d3.select(k[currentSceneIndex+1]).style("background-color")
-        //font_color = d3.select(k[currentSceneIndex+1]).style("color")
+        d3.select(k[currentSceneIndex + 1]).style("background-color", "red")
+        d3.select(k[currentSceneIndex + 1]).style("color", "white")
+
+
     }
 
 
