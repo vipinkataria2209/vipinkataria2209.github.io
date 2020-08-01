@@ -52,7 +52,7 @@ function loadFixedScene(dataSet) {
         .style("font-weight", "bold")
         .style("fill", "blue")
         .style("text-decoration", "underline")
-        .text("Title:"+chart_title);
+        .text(chart_title);
 
     var xAxis = get_scaleTime();
     svg.append("g")

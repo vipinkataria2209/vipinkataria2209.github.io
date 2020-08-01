@@ -16,19 +16,15 @@
         Narrative Visualization- Covid-19 Deaths/NewCases In USA
         <hr/>
     </div>
-    <div class="row">
-        <div class="col-1">
-            <div class="tool_box">
-                <ul class="pagination">
-                    <li><a onclick="handlePreviousScene()">«</a></li>
-                    <li><a style="background-color: red;color:white" onclick="handleUserDrivenScene(0)">1</a></li>
-                    <li><a onclick="handleUserDrivenScene(1)">2</a></li>
-                    <li><a onclick="handleUserDrivenScene(2)">3</a></li>
-                    <li><a onclick="handleNextScene()">»</a></li>
-                </ul>
-            </div>
-        </div>
-        <div class="col-11"></div>
+
+    <div class="tool_box">
+        <ul class="pagination">
+            <li><a onclick="handlePreviousScene()">«</a></li>
+            <li><a style="background-color: red;color:white" onclick="handleUserDrivenScene(0)">1</a></li>
+            <li><a onclick="handleUserDrivenScene(1)">2</a></li>
+            <li><a onclick="handleUserDrivenScene(2)">3</a></li>
+            <li><a onclick="handleNextScene()">»</a></li>
+        </ul>
     </div>
     <hr/>
 
@@ -80,7 +76,8 @@
             <div class="card-body" id="scene_3" style="display: none">
                 <ul>
                     <li>
-                        This Scene(Scene-3) will give user flexibility to drill down further on Covid 19 New Cases/Deaths
+                        This Scene(Scene-3) will give user flexibility to drill down further on Covid 19 New
+                        Cases/Deaths
                         per State.Use can select "State" from drop down and can further select "Death" or "New Cases"
                         from radio option.
                     </li>
@@ -98,7 +95,7 @@
             </div>
         </div>
         <div id="my_dataviz" class="right_window">
-            <div class="scene3box" id="scene2_id" style="visibility: hidden;display: inline-block">
+            <div id="scene2_id" style="visibility: hidden;display: inline-block ;float: right;">
                 <div class="dropdownbox">
                     <div style="float: left;font-weight: bold;margin-right: 6px">State</div>
                     <select id="d3-dropdown">
