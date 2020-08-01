@@ -85,6 +85,8 @@ function loadFixedScene(dataSet) {
         .text(hoverText + " Covid-19");
 
 
+
+
     svg.selectAll("#mybar")
         .data(dataSet)
         .enter()
@@ -106,7 +108,7 @@ function loadFixedScene(dataSet) {
         .on("mousemove", function (d) {
             month = Number(1) + Number(d.Date.getMonth())
             date1 = d.Date.getDate() + "/" + month + "/" + d.Date.getFullYear()
-            return tooltip.style("top", (event.pageY - 350) + "px").style("left", (event.pageX) + "px").html("<div class='hoverText'>" + d.Value + " :" + hoverText + "</div>" + "<div class='hoverText'>" + date1 + " :Date</div>");
+            return tooltip.style("top", (height-195) + "px").style("left", (event.pageX) + "px").html("<div class='hoverText'>" + d.Value + " :" + hoverText + "</div>" + "<div class='hoverText'>" + date1 + " :Date</div>");
         })
         .on("mouseout", function () {
             return tooltip.style("visibility", "hidden");
